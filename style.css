@@ -31,3 +31,9 @@ section{
     flex-direction: column;
     gap: 10px;
 }
+input,
+select{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
