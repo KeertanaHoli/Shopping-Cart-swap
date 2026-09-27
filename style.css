@@ -60,3 +60,12 @@ td{
     padding: 10px;
     text-align: center;
 }
+#message{
+    color: red;
+    margin-top: 10px;
+}
+
+#emptyMessage{
+    margin-top: 10px;
+    font-style: italic;
+}
