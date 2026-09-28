@@ -5,6 +5,7 @@ const message = document.getElementById("message");
 const subtotalElement = document.getElementById("subtotal");
 const taxElement = document.getElementById("tax");
 const grandTotalElement = document.getElementById("grandTotal");
+const clearCartBtn = document.getElementById("clearCart");
 form.addEventListener("submit", function(event){
     event.preventDefault();
 });
@@ -55,6 +56,14 @@ function renderCart(){
 
         cartBody.appendChild(row);
     });
+    const subtotal = calculateSubtotal();
+
+    const tax = calculateTax(subtotal);
+
+    calculateGrandTotal(
+        subtotal,
+        tax
+    );
 }
 function removeItem(index){
 
@@ -105,3 +114,9 @@ function calculateGrandTotal(subtotal,tax){
     grandTotalElement.textContent =
     (subtotal + tax).toFixed(2);
 }
+clearCartBtn.addEventListener("click", function(){
+
+    cart = [];
+
+    renderCart();
+});
