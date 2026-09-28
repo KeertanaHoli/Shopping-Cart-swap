@@ -29,6 +29,7 @@ const product = {
 };
 
 cart.push(product);
+saveCart();
 function renderCart(){
 
     cartBody.innerHTML = "";
@@ -76,11 +77,15 @@ function removeItem(index){
 
     cart.splice(index,1);
 
+    saveCart();
+
     renderCart();
 }
 function increaseQuantity(index){
 
     cart[index].quantity++;
+
+    saveCart();
 
     renderCart();
 }
@@ -89,6 +94,8 @@ function decreaseQuantity(index){
     if(cart[index].quantity > 1){
         cart[index].quantity--;
     }
+
+    saveCart();
 
     renderCart();
 }
@@ -125,5 +132,25 @@ clearCartBtn.addEventListener("click", function(){
 
     cart = [];
 
+    saveCart();
+
     renderCart();
 });
+function saveCart(){
+
+    localStorage.setItem(
+        "shoppingCart",
+        JSON.stringify(cart)
+    );
+}
+const savedCart =
+JSON.parse(
+    localStorage.getItem("shoppingCart")
+);
+
+if(savedCart){
+
+    cart = savedCart;
+
+    renderCart();
+}
