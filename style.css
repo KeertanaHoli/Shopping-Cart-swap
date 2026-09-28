@@ -73,10 +73,7 @@ td{
     color: red;
     margin-top: 10px;
 }
-#emptyMessage{
-    margin-top: 10px;
-    font-style: italic;
-}
+
 @media (max-width: 768px){
     body{
         padding: 10px;
