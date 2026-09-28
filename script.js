@@ -24,3 +24,23 @@ const product = {
 };
 
 cart.push(product);
+function renderCart(){
+
+    cartBody.innerHTML = "";
+
+    cart.forEach(function(product){
+
+        const row = document.createElement("tr");
+
+        row.innerHTML = `
+            <td>${product.name}</td>
+            <td>${product.category}</td>
+            <td>₹${product.price}</td>
+            <td>${product.quantity}</td>
+            <td>₹${product.price * product.quantity}</td>
+            <td>Actions</td>
+        `;
+
+        cartBody.appendChild(row);
+    });
+}
