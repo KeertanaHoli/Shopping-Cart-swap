@@ -42,6 +42,8 @@ function renderCart(){
             <td>
             <button onclick="increaseQuantity(${index})">+</button>
 
+            <button onclick="decreaseQuantity(${index})">-</button>
+
             <button onclick="removeItem(${index})">
                 Remove
             </button>
@@ -60,6 +62,14 @@ function removeItem(index){
 function increaseQuantity(index){
 
     cart[index].quantity++;
+
+    renderCart();
+}
+function decreaseQuantity(index){
+
+    if(cart[index].quantity > 1){
+        cart[index].quantity--;
+    }
 
     renderCart();
 }
