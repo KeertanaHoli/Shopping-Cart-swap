@@ -3,6 +3,7 @@ const form = document.getElementById("productForm");
 const cartBody = document.getElementById("cartBody");
 const message = document.getElementById("message");
 const subtotalElement = document.getElementById("subtotal");
+const taxElement = document.getElementById("tax");
 form.addEventListener("submit", function(event){
     event.preventDefault();
 });
@@ -88,4 +89,13 @@ function calculateSubtotal(){
     subtotal.toFixed(2);
 
     return subtotal;
+}
+function calculateTax(subtotal){
+
+    const tax = subtotal * 0.10;
+
+    taxElement.textContent =
+    tax.toFixed(2);
+
+    return tax;
 }
