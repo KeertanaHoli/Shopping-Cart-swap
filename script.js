@@ -86,7 +86,6 @@ function increaseQuantity(index) {
     saveCart();
     renderCart();
 }
-
 function decreaseQuantity(index) {
     if (cart[index].quantity > 1) {
         cart[index].quantity--;
