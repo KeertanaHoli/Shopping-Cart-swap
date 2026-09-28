@@ -16,3 +16,11 @@ if(!name || price <= 0 || quantity <= 0 || !category){
 }
 
 message.textContent = "";
+const product = {
+    name,
+    price,
+    quantity,
+    category
+};
+
+cart.push(product);
