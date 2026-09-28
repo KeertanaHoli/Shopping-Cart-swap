@@ -4,6 +4,7 @@ const cartBody = document.getElementById("cartBody");
 const message = document.getElementById("message");
 const subtotalElement = document.getElementById("subtotal");
 const taxElement = document.getElementById("tax");
+const grandTotalElement = document.getElementById("grandTotal");
 form.addEventListener("submit", function(event){
     event.preventDefault();
 });
@@ -98,4 +99,9 @@ function calculateTax(subtotal){
     tax.toFixed(2);
 
     return tax;
+}
+function calculateGrandTotal(subtotal,tax){
+
+    grandTotalElement.textContent =
+    (subtotal + tax).toFixed(2);
 }
