@@ -40,6 +40,8 @@ function renderCart(){
             <td>₹${product.price * product.quantity}</td>
             <td>Actions</td>
             <td>
+            <button onclick="increaseQuantity(${index})">+</button>
+
             <button onclick="removeItem(${index})">
                 Remove
             </button>
@@ -52,6 +54,12 @@ function renderCart(){
 function removeItem(index){
 
     cart.splice(index,1);
+
+    renderCart();
+}
+function increaseQuantity(index){
+
+    cart[index].quantity++;
 
     renderCart();
 }
