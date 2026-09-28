@@ -28,7 +28,7 @@ function renderCart(){
 
     cartBody.innerHTML = "";
 
-    cart.forEach(function(product){
+    cart.forEach(function(product, index){
 
         const row = document.createElement("tr");
 
@@ -39,8 +39,19 @@ function renderCart(){
             <td>${product.quantity}</td>
             <td>₹${product.price * product.quantity}</td>
             <td>Actions</td>
+            <td>
+            <button onclick="removeItem(${index})">
+                Remove
+            </button>
+            </td>
         `;
 
         cartBody.appendChild(row);
     });
+}
+function removeItem(index){
+
+    cart.splice(index,1);
+
+    renderCart();
 }
