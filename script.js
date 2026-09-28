@@ -2,6 +2,7 @@ let cart = [];
 const form = document.getElementById("productForm");
 const cartBody = document.getElementById("cartBody");
 const message = document.getElementById("message");
+const subtotalElement = document.getElementById("subtotal");
 form.addEventListener("submit", function(event){
     event.preventDefault();
 });
@@ -72,4 +73,19 @@ function decreaseQuantity(index){
     }
 
     renderCart();
+}
+function calculateSubtotal(){
+
+    let subtotal = 0;
+
+    cart.forEach(function(product){
+
+        subtotal +=
+        product.price * product.quantity;
+    });
+
+    subtotalElement.textContent =
+    subtotal.toFixed(2);
+
+    return subtotal;
 }
