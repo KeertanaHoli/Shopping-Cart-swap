@@ -2,6 +2,7 @@ let cart = [];
 const form = document.getElementById("productForm");
 const cartBody = document.getElementById("cartBody");
 const message = document.getElementById("message");
+const emptyMessage = document.getElementById("emptyMessage");
 const subtotalElement = document.getElementById("subtotal");
 const taxElement = document.getElementById("tax");
 const grandTotalElement = document.getElementById("grandTotal");
@@ -31,6 +32,12 @@ cart.push(product);
 function renderCart(){
 
     cartBody.innerHTML = "";
+    if(cart.length === 0){
+        emptyMessage.style.display = "block";
+    }
+    else{
+        emptyMessage.style.display = "none";
+    
 
     cart.forEach(function(product, index){
 
